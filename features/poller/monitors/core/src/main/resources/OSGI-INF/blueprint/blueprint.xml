@@ -364,6 +364,14 @@
 	</service>
 
 
+	<bean id="snmpTimeMonitor" class="org.opennms.netmgt.poller.monitors.SnmpTimeMonitor" />
+	<service ref="snmpTimeMonitor" interface="org.opennms.netmgt.poller.ServiceMonitor">
+		<service-properties>
+			<entry key="type" value="org.opennms.netmgt.poller.monitors.SnmpTimeMonitor" />
+		</service-properties>
+	</service>
+
+
 	<bean id="sshMonitor" class="org.opennms.netmgt.poller.monitors.SshMonitor" />
 	<service ref="sshMonitor" interface="org.opennms.netmgt.poller.ServiceMonitor">
 		<service-properties>

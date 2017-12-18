@@ -45,6 +45,7 @@ org.opennms.netmgt.poller.monitors.PrTableMonitor
 org.opennms.netmgt.poller.monitors.SmbMonitor
 org.opennms.netmgt.poller.monitors.SmtpMonitor
 org.opennms.netmgt.poller.monitors.SnmpMonitor
+org.opennms.netmgt.poller.monitors.SnmpTimeMonitor
 org.opennms.netmgt.poller.monitors.SshMonitor
 org.opennms.netmgt.poller.monitors.SSLCertMonitor
 org.opennms.netmgt.poller.monitors.StrafePingMonitor
