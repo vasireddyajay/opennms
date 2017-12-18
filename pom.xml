@@ -724,18 +724,6 @@
         </configuration>
       </plugin>    
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>2.2</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgresqlVersion}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>0.7.6.201602180812</version>
@@ -1011,17 +999,6 @@
           <generateHtml>true</generateHtml>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <dependencies>
-          <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgresqlVersion}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
       <!-- jacoco code coverage testing library -->
       <!--
       <plugin>
@@ -1150,7 +1127,8 @@
 
       Add target/endorsed as an endorsed API directory in case projects require it.
     -->
-    <argLine>-Xmx1g -Djava.security.egd=/dev/./urandom -Djava.endorsed.dirs=${basedir}/target/endorsed -Dpoller.logfile=/tmp/remote-poller.log</argLine>
+    <argLineMemory>-Xmx1g</argLineMemory>
+    <argLine>${argLineMemory} -Djava.security.egd=/dev/./urandom -Djava.endorsed.dirs=${basedir}/target/endorsed -Dpoller.logfile=/tmp/remote-poller.log</argLine>
     <skipITs>true</skipITs>
 
     <!--
@@ -1307,10 +1285,11 @@
     <jasperreportsMavenPluginVersion>1.0-beta-4-OPENNMS-20160912-1</jasperreportsMavenPluginVersion>
     <jcifsVersion>1.3.14</jcifsVersion>
     <jcommonVersion>1.0.23</jcommonVersion>
-    <jettyVersion>9.4.0.v20161208</jettyVersion>
+    <jettyVersion>9.4.2.v20170220</jettyVersion>
     <jfreechartVersion>1.0.19</jfreechartVersion>
     <jinteropVersion>2.0.8</jinteropVersion>
     <jldapVersion>4.3</jldapVersion>
+    <jmxremote.optional.version>1.0_01-ea</jmxremote.optional.version>
     <jodaTimeVersion>2.1</jodaTimeVersion>
     <jrubyVersion>9.0.4.0</jrubyVersion>
     <jsoupVersion>1.7.2</jsoupVersion>
@@ -3436,6 +3415,11 @@
         <groupId>org.hibernate.javax.persistence</groupId>
         <artifactId>hibernate-jpa-2.0-api</artifactId>
         <version>1.0.1.Final</version>
+      </dependency>
+      <dependency>
+	      <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator-annotation-processor</artifactId>
+        <version>4.1.0.Final</version>
       </dependency>
       <dependency>
         <groupId>javax.samples.jnlp</groupId>
