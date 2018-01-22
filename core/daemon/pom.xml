@@ -41,6 +41,10 @@
             <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
             <Bundle-Version>${project.version}</Bundle-Version>
             <Import-Package>
+              <!-- To expose the queuingservice Camel Component -->
+              org.apache.camel,
+              <!-- Required for Spring annotation scanning -->
+              org.apache.camel.spi,
               <!-- Declare the Attach API as an optional dependency -->
               com.sun.tools.attach;resolution:=optional,
               <!-- ActiveMQ broker is also optional -->
@@ -51,6 +55,10 @@
               *
             </Import-Package>
             <Export-Package>org.opennms.netmgt.daemon.*;org.opennms.netmgt.vmmgr.*;version="${project.version}"</Export-Package>
+            <Spring-Context>
+              META-INF/opennms/applicationContext-daemon.xml,
+              META-INF/opennms/applicationContext-daemon-osgi.xml
+            </Spring-Context>
           </instructions>
         </configuration>
       </plugin>
